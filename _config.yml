@@ -1,0 +1,8 @@
+title: White Fortress Blog
+description: Thoughts, updates and more
+url: "https://blog.whitefortress.in"
+baseurl: ""
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
