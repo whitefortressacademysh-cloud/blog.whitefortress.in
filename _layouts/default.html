@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="scan-line"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="{{ '/' | relative_url }}" class="site-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">{{ site.title }}</span>
+        <span class="logo-bracket">]</span>
+        <span class="cursor-blink">_</span>
+      </a>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/categories' | relative_url }}">Categories</a>
+        <a href="{{ '/tags' | relative_url }}">Tags</a>
+        <a href="{{ '/about' | relative_url }}">About</a>
+      </nav>
+      <div class="header-search">
+        <input type="text" id="search-input" placeholder="search posts..." autocomplete="off"/>
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">[WFB]_</span>
+        <p>{{ site.description }}</p>
+      </div>
+      <div class="footer-right">
+        <p class="footer-copy">© {{ 'now' | date: "%Y" }} White Fortress Blog. All rights reserved.</p>
+        <p class="footer-stack">Built with Jekyll · Hosted on Cloudflare Pages</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const posts = [
+      {% for post in site.posts %}
+      {
+        title: {{ post.title | jsonify }},
+        url: {{ post.url | relative_url | jsonify }},
+        categories: {{ post.categories | jsonify }},
+        tags: {{ post.tags | jsonify }},
+        excerpt: {{ post.excerpt | strip_html | truncate: 100 | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+
+    input.addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      if (q.length < 2) { results.innerHTML = ''; results.style.display = 'none'; return; }
+      const matches = posts.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.excerpt.toLowerCase().includes(q) ||
+        p.tags.some(t => t.toLowerCase().includes(q)) ||
+        p.categories.some(c => c.toLowerCase().includes(q))
+      );
+      if (matches.length === 0) {
+        results.innerHTML = '<div class="no-results">no results found</div>';
+      } else {
+        results.innerHTML = matches.map(p =>
+          `<a href="${p.url}" class="search-result-item">
+            <span class="sr-title">${p.title}</span>
+            <span class="sr-excerpt">${p.excerpt}</span>
+          </a>`
+        ).join('');
+      }
+      results.style.display = 'block';
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.header-search')) {
+        results.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
