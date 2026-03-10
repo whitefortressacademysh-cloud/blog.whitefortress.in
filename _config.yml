@@ -1,8 +1,18 @@
 title: White Fortress Blog
-description: Thoughts, updates and more
+description: Offensive Security · Penetration Testing · Cybersecurity Research
 url: "https://blog.whitefortress.in"
 baseurl: ""
-theme: minima
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+author:
+  name: Hritik Arya
+  title: Offensive Security Specialist
+
+twitter_url: "https://twitter.com/yourhandle"
+github_url: "https://github.com/yourhandle"
+linkedin_url: "https://linkedin.com/in/yourhandle"
+
+permalink: /:year/:month/:day/:title/
