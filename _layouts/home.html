@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<div class="home-hero">
+  <div class="hero-terminal">
+    <div class="terminal-bar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="terminal-title">whitefortress@blog:~$</span>
+    </div>
+    <div class="terminal-body">
+      <p><span class="prompt">$</span> whoami</p>
+      <p class="output">Offensive Security · Penetration Testing · Cybersecurity Research</p>
+      <p><span class="prompt">$</span> ls ./latest-posts<span class="cursor-blink">_</span></p>
+    </div>
+  </div>
+</div>
+
+<section class="posts-section">
+  <div class="posts-grid">
+    {% for post in site.posts %}
+    <article class="post-card">
+      <div class="post-card-header">
+        <div class="post-meta-top">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          {% if post.categories.size > 0 %}
+          <span class="post-category">{{ post.categories | first }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <h2 class="post-card-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      <div class="post-card-footer">
+        <div class="post-tags">
+          {% for tag in post.tags limit:3 %}
+          <a href="{{ '/tags#' | append: tag | relative_url }}" class="tag">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">read_more →</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <h3><span class="accent">$</span> subscribe --to updates</h3>
+      <p>Get the latest posts on pentesting, exploits, and security research delivered to your inbox.</p>
+    </div>
+    <form class="newsletter-form" action="https://app.beehiiv.com/subscribe" method="post" target="_blank">
+      <input type="email" name="email" placeholder="your@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
