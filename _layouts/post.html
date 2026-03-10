@@ -7,7 +7,7 @@ layout: default
     <div class="post-header-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
       {% if page.categories.size > 0 %}
-      <span class="divider">/</span>
+      <span class="divider">·</span>
       {% for cat in page.categories %}
       <a href="{{ '/categories#' | append: cat | relative_url }}" class="post-cat-link">{{ cat }}</a>
       {% endfor %}
@@ -16,7 +16,7 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-tags-header">
       {% for tag in page.tags %}
-      <a href="{{ '/tags#' | append: tag | relative_url }}" class="tag">#{{ tag }}</a>
+      <a href="{{ '/tags#' | append: tag | relative_url }}" class="tag">{{ tag }}</a>
       {% endfor %}
     </div>
   </header>
@@ -43,13 +43,13 @@ layout: default
   <nav class="post-nav">
     {% if page.previous.url %}
     <a href="{{ page.previous.url | relative_url }}" class="post-nav-item prev">
-      <span class="nav-label">← previous</span>
+      <span class="nav-label">← Previous</span>
       <span class="nav-title">{{ page.previous.title }}</span>
     </a>
     {% endif %}
     {% if page.next.url %}
     <a href="{{ page.next.url | relative_url }}" class="post-nav-item next">
-      <span class="nav-label">next →</span>
+      <span class="nav-label">Next →</span>
       <span class="nav-title">{{ page.next.title }}</span>
     </a>
     {% endif %}
