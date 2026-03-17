@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Ethical Hacking and Cybersecurity Roadmap for 2025 — From Zero to Job-Ready"
+title: "The Ethical Hacking and Cybersecurity Roadmap for 2026 — From Zero to Job-Ready"
 date: 2026-03-13
 categories: roadmap
 tags: ethical-hacking cybersecurity beginners career certifications
