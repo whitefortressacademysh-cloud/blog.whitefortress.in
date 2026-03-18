@@ -4,6 +4,8 @@ title: "The Ethical Hacking and Cybersecurity Roadmap for 2026 — From Zero to 
 date: 2026-03-13
 categories: roadmap
 tags: ethical-hacking cybersecurity beginners career certifications
+image: /assets/roadmap.webp
+image_alt: "Ethical Hacking and Cyber Security Roadmap 2026"
 ---
 
 People overcomplicate this. They spend weeks arguing about which certification to do first, which programming language to learn, whether they need a degree. Meanwhile they haven't opened a terminal once.
