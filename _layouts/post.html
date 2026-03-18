@@ -1,8 +1,10 @@
 ---
 layout: default
 ---
-
 <article class="post-full">
+  {% if page.image %}
+  <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" class="post-cover-image">
+  {% endif %}
   <header class="post-header">
     <div class="post-header-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
@@ -20,9 +22,18 @@ layout: default
       {% endfor %}
     </div>
   </header>
-
   <div class="post-content">
     {{ content }}
+  </div>
+
+  <div class="share-section">
+    <p class="share-label">Share this post</p>
+    <div class="share-buttons">
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" class="share-btn share-twitter">Twitter / X</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" class="share-btn share-linkedin">LinkedIn</a>
+      <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}" target="_blank" class="share-btn share-whatsapp">WhatsApp</a>
+      <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(window.location.href); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy Link', 2000)">Copy Link</button>
+    </div>
   </div>
 
   <div class="author-bio">
