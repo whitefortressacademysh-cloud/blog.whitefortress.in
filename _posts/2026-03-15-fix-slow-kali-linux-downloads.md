@@ -4,6 +4,8 @@ title: "How to Fix Slow Downloads in Kali Linux — Permanently"
 date: 2026-03-15
 categories: linux
 tags: kali-linux terminal beginners optimization
+image: /assets/kali.webp
+image_alt: "Fix Slow Download Speed in Kali Linux"
 ---
 
 Slow downloads in Kali Linux are one of those problems that seem minor until you're waiting twenty minutes for a tool that should take thirty seconds. Most people assume it's their internet connection and leave it at that. It usually isn't.
