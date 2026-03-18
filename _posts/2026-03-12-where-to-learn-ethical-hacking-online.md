@@ -4,6 +4,8 @@ title: "Where to Learn Ethical Hacking Online — A Honest Guide for Beginners"
 date: 2026-03-12
 categories: resources
 tags: beginners learning ethical-hacking platforms roadmap
+image: /assets/online.webp
+image_alt: "How to Learn Ethical Hacking Online"
 ---
 
 Every week someone asks me the same question. "I want to get into ethical hacking — where do I start?"
