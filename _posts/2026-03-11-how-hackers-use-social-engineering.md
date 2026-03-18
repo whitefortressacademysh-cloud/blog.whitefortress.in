@@ -4,7 +4,7 @@ title: "How Hackers Use Social Engineering — And Why It Works So Well"
 date: 2026-03-11
 categories: social-engineering
 tags: phishing pretexting beginners human-hacking
-image: /assets/online.webp
+image: /assets/social.webp
 image_alt: "How Hackers Use Social Engineering"
 ---
 
